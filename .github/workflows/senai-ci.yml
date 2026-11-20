@@ -1,0 +1,24 @@
+name: CI do BankApi
+on: 
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone do repositorio
+              uses: actions/checkout@v4
+
+            - name: Configurar Java
+              uses: actions/setup-java@v4
+              with:
+                distribution: temurin
+                java-version: 21
+                cache: maven
+            - name: Compilar e Executar testes
+              run: mvn -B clean verify
+
+
+
