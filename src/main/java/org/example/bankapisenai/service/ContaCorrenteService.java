@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service 
 public class ContaCorrenteService {
     public ContaCorrente realizarSaque(BigDecimal valor, ContaCorrente contaCorrente) {
-        contaCorrente.setSaldo(contaCorrente.getSaldo().add(valor));
+        contaCorrente.setSaldo(contaCorrente.getSaldo().subtract(valor));
         return contaCorrente;
     }
 }
